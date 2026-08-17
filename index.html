@@ -1,0 +1,70 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+    <meta name="description" content="Promessas de Deus — uma experiência da linha Vereda, da Midas." />
+    <meta name="theme-color" content="#f6f1e7" />
+    <title>Promessas de Deus | Vereda</title>
+    <link rel="stylesheet" href="./assets/styles.css" />
+  </head>
+  <body>
+    <a class="skip-link" href="#conteudo">Pular para o conteúdo</a>
+
+    <div class="app-shell">
+      <header class="topbar">
+        <div class="brand-lockup" aria-label="Promessas de Deus, Vereda">
+          <span class="brand-mark" aria-hidden="true">
+            <svg viewBox="0 0 24 24"><path d="M10 3h4v6h5v4h-5v8h-4v-8H5V9h5V3Z" /></svg>
+          </span>
+          <span>
+            <strong>Promessas de Deus</strong>
+            <small>VEREDA</small>
+          </span>
+        </div>
+
+        <button class="icon-button" id="theme-toggle" type="button" aria-label="Alternar modo claro e escuro" aria-pressed="false">
+          <svg class="sun" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41"/></svg>
+          <svg class="moon" viewBox="0 0 24 24" aria-hidden="true"><path d="M20 15.5A8.5 8.5 0 0 1 8.5 4 8.5 8.5 0 1 0 20 15.5Z"/></svg>
+        </button>
+      </header>
+
+      <main id="conteudo" class="main-content" tabindex="-1">
+        <section class="intro" aria-labelledby="page-title">
+          <p class="eyebrow">Uma palavra para o seu momento</p>
+          <h1 id="page-title">Receba uma promessa</h1>
+          <p class="intro-copy">Um instante simples para parar, ler e guardar a Palavra.</p>
+        </section>
+
+        <article class="promise-card" aria-live="polite">
+          <span class="paper-detail" aria-hidden="true"></span>
+          <p class="promise-label">PROMESSA</p>
+          <blockquote id="promise-text">Conteúdo bíblico de desenvolvimento.</blockquote>
+          <p class="promise-reference" id="promise-reference">Referência será definida</p>
+          <p class="translation-note" id="translation-note">Tradução a definir</p>
+        </article>
+
+        <button class="button primary" id="new-promise" type="button">Receber outra promessa</button>
+
+        <div class="secondary-actions" aria-label="Ações da promessa">
+          <button type="button" class="action-button" disabled>
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 3h12v18l-6-4-6 4V3Z"/></svg>
+            <span>Guardar</span>
+          </button>
+          <button type="button" class="action-button" disabled>
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3v12M7 8l5-5 5 5"/><path d="M5 13v7h14v-7"/></svg>
+            <span>Compartilhar</span>
+          </button>
+          <button type="button" class="action-button" disabled>
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 4.5A2.5 2.5 0 0 1 6.5 2H20v18H6.5A2.5 2.5 0 0 0 4 22V4.5Z"/><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/></svg>
+            <span>Ler na Bíblia</span>
+          </button>
+        </div>
+      </main>
+
+      <footer class="footer">Uma experiência VEREDA · MIDAS</footer>
+    </div>
+
+    <script type="module" src="./assets/app.js"></script>
+  </body>
+</html>
