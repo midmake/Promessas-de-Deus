@@ -114,5 +114,56 @@
 
   <canvas id="share-canvas" width="1080" height="1350" hidden></canvas>
   <script type="module" src="./assets/app.js"></script>
+  <script>
+    (() => {
+      const button = document.getElementById('new-promise');
+      if (!button) return;
+
+      let audioContext;
+      function paperRustle() {
+        try {
+          audioContext ||= new (window.AudioContext || window.webkitAudioContext)();
+          if (audioContext.state === 'suspended') audioContext.resume();
+
+          const duration = 0.42;
+          const sampleRate = audioContext.sampleRate;
+          const buffer = audioContext.createBuffer(1, Math.floor(sampleRate * duration), sampleRate);
+          const data = buffer.getChannelData(0);
+
+          for (let i = 0; i < data.length; i++) {
+            const t = i / data.length;
+            const envelope = Math.sin(Math.PI * t) * (1 - t * 0.35);
+            const noise = (Math.random() * 2 - 1);
+            data[i] = noise * envelope * 0.48;
+          }
+
+          const source = audioContext.createBufferSource();
+          const highPass = audioContext.createBiquadFilter();
+          const bandPass = audioContext.createBiquadFilter();
+          const gain = audioContext.createGain();
+
+          highPass.type = 'highpass';
+          highPass.frequency.value = 420;
+          bandPass.type = 'bandpass';
+          bandPass.frequency.value = 1850;
+          bandPass.Q.value = 0.65;
+
+          gain.gain.setValueAtTime(0.0001, audioContext.currentTime);
+          gain.gain.exponentialRampToValueAtTime(0.12, audioContext.currentTime + 0.035);
+          gain.gain.exponentialRampToValueAtTime(0.0001, audioContext.currentTime + duration);
+
+          source.buffer = buffer;
+          source.connect(highPass).connect(bandPass).connect(gain).connect(audioContext.destination);
+          source.start();
+        } catch (_) {
+          /* áudio é apenas um aprimoramento; a experiência continua sem ele */
+        }
+      }
+
+      button.addEventListener('click', () => {
+        if (!button.disabled) paperRustle();
+      }, { passive: true });
+    })();
+  </script>
 </body>
 </html>
