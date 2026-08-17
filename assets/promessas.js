@@ -1,14 +1,10 @@
 export const promessas = [
-  {
-    id: "dev-001",
-    texto: "Conteúdo bíblico de desenvolvimento.",
-    livro: "",
-    capitulo: null,
-    versiculoInicial: null,
-    versiculoFinal: null,
-    referencia: "Referência será definida",
-    traducao: "Tradução a definir",
-    categoria: "desenvolvimento",
-    ativo: true
-  }
+  { id: "psa-46-1", texto: "Deus é o nosso refúgio e fortaleza, socorro bem presente na angústia.", livro: "Salmos", bookId: "PSA", capitulo: 46, versiculoInicial: 1, versiculoFinal: 1, referencia: "Salmos 46:1", traducao: "João Ferreira de Almeida", categoria: "refugio", ativo: true },
+  { id: "pro-3-5", texto: "Confia no Senhor de todo o teu coração, e não te estribes no teu próprio entendimento.", livro: "Provérbios", bookId: "PRO", capitulo: 3, versiculoInicial: 5, versiculoFinal: 5, referencia: "Provérbios 3:5", traducao: "João Ferreira de Almeida", categoria: "confianca", ativo: true },
+  { id: "mat-11-28", texto: "Vinde a mim, todos os que estais cansados e oprimidos, e eu vos aliviarei.", livro: "Mateus", bookId: "MAT", capitulo: 11, versiculoInicial: 28, versiculoFinal: 28, referencia: "Mateus 11:28", traducao: "João Ferreira de Almeida", categoria: "descanso", ativo: true },
+  { id: "psa-37-5", texto: "Entrega o teu caminho ao Senhor; confia nele, e ele tudo fará.", livro: "Salmos", bookId: "PSA", capitulo: 37, versiculoInicial: 5, versiculoFinal: 5, referencia: "Salmos 37:5", traducao: "João Ferreira de Almeida", categoria: "confianca", ativo: true },
+  { id: "jhn-14-27", texto: "Deixo-vos a paz, a minha paz vos dou; não se turbe o vosso coração, nem se atemorize.", livro: "João", bookId: "JHN", capitulo: 14, versiculoInicial: 27, versiculoFinal: 27, referencia: "João 14:27", traducao: "João Ferreira de Almeida", categoria: "paz", ativo: true },
+  { id: "psa-121-7", texto: "O Senhor te guardará de todo o mal; ele guardará a tua alma.", livro: "Salmos", bookId: "PSA", capitulo: 121, versiculoInicial: 7, versiculoFinal: 7, referencia: "Salmos 121:7", traducao: "João Ferreira de Almeida", categoria: "protecao", ativo: true },
+  { id: "psa-147-3", texto: "Sara os quebrantados de coração, e liga-lhes as feridas.", livro: "Salmos", bookId: "PSA", capitulo: 147, versiculoInicial: 3, versiculoFinal: 3, referencia: "Salmos 147:3", traducao: "João Ferreira de Almeida", categoria: "consolo", ativo: true },
+  { id: "deu-31-8", texto: "O Senhor é aquele que vai adiante de ti; ele será contigo, não te deixará, nem te desamparará.", livro: "Deuteronômio", bookId: "DEU", capitulo: 31, versiculoInicial: 8, versiculoFinal: 8, referencia: "Deuteronômio 31:8", traducao: "João Ferreira de Almeida", categoria: "presenca", ativo: true }
 ];
