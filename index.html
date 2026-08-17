@@ -1,70 +1,118 @@
 <!doctype html>
 <html lang="pt-BR">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
-    <meta name="description" content="Promessas de Deus — uma experiência da linha Vereda, da Midas." />
-    <meta name="theme-color" content="#f6f1e7" />
-    <title>Promessas de Deus | Vereda</title>
-    <link rel="stylesheet" href="./assets/styles.css" />
-  </head>
-  <body>
-    <a class="skip-link" href="#conteudo">Pular para o conteúdo</a>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <meta name="description" content="Promessas de Deus — uma experiência VEREDA, da MIDAS." />
+  <meta name="theme-color" content="#f6f1e7" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="default" />
+  <title>Promessas de Deus | VEREDA</title>
+  <link rel="stylesheet" href="./assets/styles.css" />
+</head>
+<body>
+  <a class="skip-link" href="#conteudo">Pular para o conteúdo</a>
 
-    <div class="app-shell">
-      <header class="topbar">
-        <div class="brand-lockup" aria-label="Promessas de Deus, Vereda">
-          <span class="brand-mark" aria-hidden="true">
-            <svg viewBox="0 0 24 24"><path d="M10 3h4v6h5v4h-5v8h-4v-8H5V9h5V3Z" /></svg>
-          </span>
-          <span>
-            <strong>Promessas de Deus</strong>
-            <small>VEREDA</small>
-          </span>
-        </div>
+  <div class="opening-ritual" id="opening-ritual" aria-hidden="true">
+    <div class="ritual-stage">
+      <div class="ritual-box" aria-hidden="true">
+        <div class="ritual-lid"></div>
+        <div class="ritual-paper"><span>VEREDA</span></div>
+        <div class="ritual-box-front"><span class="ritual-cross">✦</span></div>
+      </div>
+    </div>
+  </div>
 
+  <div class="app-shell" id="app-shell">
+    <header class="topbar">
+      <div class="brand-lockup" aria-label="VEREDA, Promessas de Deus">
+        <span class="brand-mark" aria-hidden="true">
+          <svg viewBox="0 0 24 24"><path d="M10 3h4v6h5v4h-5v8h-4v-8H5V9h5V3Z" /></svg>
+        </span>
+        <span class="brand-copy">
+          <small>VEREDA</small>
+          <strong>Promessas de Deus</strong>
+        </span>
+      </div>
+
+      <div class="top-actions">
+        <button class="icon-button saved-button" id="open-saved" type="button" aria-label="Abrir promessas guardadas">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 3h12v18l-6-4-6 4V3Z"/></svg>
+          <span class="saved-count" id="saved-count" hidden>0</span>
+        </button>
         <button class="icon-button" id="theme-toggle" type="button" aria-label="Alternar modo claro e escuro" aria-pressed="false">
           <svg class="sun" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41"/></svg>
           <svg class="moon" viewBox="0 0 24 24" aria-hidden="true"><path d="M20 15.5A8.5 8.5 0 0 1 8.5 4 8.5 8.5 0 1 0 20 15.5Z"/></svg>
         </button>
-      </header>
+      </div>
+    </header>
 
-      <main id="conteudo" class="main-content" tabindex="-1">
-        <section class="intro" aria-labelledby="page-title">
-          <p class="eyebrow">Uma palavra para o seu momento</p>
-          <h1 id="page-title">Receba uma promessa</h1>
-          <p class="intro-copy">Um instante simples para parar, ler e guardar a Palavra.</p>
-        </section>
+    <main id="conteudo" class="main-content" tabindex="-1">
+      <section class="intro" aria-labelledby="page-title">
+        <p class="eyebrow">Uma promessa para o seu momento</p>
+        <h1 id="page-title">Receba. Reflita. Guarde.</h1>
+      </section>
 
-        <article class="promise-card" aria-live="polite">
+      <div class="promise-stage" id="promise-stage">
+        <article class="promise-card" id="promise-card" aria-live="polite">
           <span class="paper-detail" aria-hidden="true"></span>
+          <span class="paper-corner" aria-hidden="true"></span>
           <p class="promise-label">PROMESSA</p>
-          <blockquote id="promise-text">Conteúdo bíblico de desenvolvimento.</blockquote>
-          <p class="promise-reference" id="promise-reference">Referência será definida</p>
-          <p class="translation-note" id="translation-note">Tradução a definir</p>
+          <blockquote id="promise-text"></blockquote>
+          <p class="promise-reference" id="promise-reference"></p>
+          <p class="translation-note" id="translation-note"></p>
         </article>
+      </div>
 
-        <button class="button primary" id="new-promise" type="button">Receber outra promessa</button>
+      <button class="button primary" id="new-promise" type="button">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20 12a8 8 0 1 1-2.34-5.66M20 4v6h-6"/></svg>
+        <span>Receber outra promessa</span>
+      </button>
 
-        <div class="secondary-actions" aria-label="Ações da promessa">
-          <button type="button" class="action-button" disabled>
-            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 3h12v18l-6-4-6 4V3Z"/></svg>
-            <span>Guardar</span>
-          </button>
-          <button type="button" class="action-button" disabled>
-            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3v12M7 8l5-5 5 5"/><path d="M5 13v7h14v-7"/></svg>
-            <span>Compartilhar</span>
-          </button>
-          <button type="button" class="action-button" disabled>
-            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 4.5A2.5 2.5 0 0 1 6.5 2H20v18H6.5A2.5 2.5 0 0 0 4 22V4.5Z"/><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/></svg>
-            <span>Ler na Bíblia</span>
-          </button>
+      <div class="secondary-actions" aria-label="Ações da promessa">
+        <button type="button" class="action-button" id="save-promise">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 3h12v18l-6-4-6 4V3Z"/></svg>
+          <span>Guardar</span>
+        </button>
+        <button type="button" class="action-button" id="share-promise">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3v12M7 8l5-5 5 5"/><path d="M5 13v7h14v-7"/></svg>
+          <span>Compartilhar</span>
+        </button>
+        <button type="button" class="action-button" id="read-bible">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 4.5A2.5 2.5 0 0 1 6.5 2H20v18H6.5A2.5 2.5 0 0 0 4 22V4.5Z"/><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/></svg>
+          <span>Ler na Bíblia</span>
+        </button>
+      </div>
+
+      <p class="quiet-note">A Palavra no centro. A tecnologia apenas aproxima.</p>
+    </main>
+
+    <footer class="footer">
+      <strong>VEREDA · MIDAS</strong>
+      <span>Texto bíblico: João Ferreira de Almeida · domínio público.</span>
+    </footer>
+  </div>
+
+  <div class="saved-panel" id="saved-panel" hidden>
+    <button class="panel-backdrop" id="saved-backdrop" type="button" aria-label="Fechar promessas guardadas"></button>
+    <section class="saved-sheet" role="dialog" aria-modal="true" aria-labelledby="saved-title">
+      <div class="sheet-handle" aria-hidden="true"></div>
+      <header class="saved-header">
+        <div>
+          <p class="eyebrow">Sua caminhada</p>
+          <h2 id="saved-title">Promessas guardadas</h2>
         </div>
-      </main>
+        <button class="icon-button close-button" id="close-saved" type="button" aria-label="Fechar">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="m6 6 12 12M18 6 6 18"/></svg>
+        </button>
+      </header>
+      <div class="saved-list" id="saved-list"></div>
+    </section>
+  </div>
 
-      <footer class="footer">Uma experiência VEREDA · MIDAS</footer>
-    </div>
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
 
-    <script type="module" src="./assets/app.js"></script>
-  </body>
+  <canvas id="share-canvas" width="1080" height="1350" hidden></canvas>
+  <script type="module" src="./assets/app.js"></script>
+</body>
 </html>
