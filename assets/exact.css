@@ -1,1 +1,35 @@
-.reference-frame{background:#173d31;background-image:none;background-size:100% 100%;background-repeat:no-repeat;background-position:center}.opening-veil{animation:none;opacity:1;visibility:visible;transition:opacity .34s ease,visibility .34s ease}.opening-veil.ready{opacity:0;visibility:hidden}.dynamic-paper.reference-copy{opacity:0!important;box-shadow:none!important;pointer-events:none}.dynamic-paper.reference-copy:before{display:none}
+.reference-frame{
+  background-color:#173d31!important;
+  background-image:url('./reference-approved.jpeg')!important;
+  background-repeat:no-repeat!important;
+  background-position:center!important;
+  background-size:100% 100%!important;
+}
+
+/* A arte aprovada é a fonte de verdade visual. A interface funcional fica em camadas sobre ela. */
+.opening-veil{
+  animation:none!important;
+  opacity:1;
+  visibility:visible;
+  transition:opacity .34s ease,visibility .34s ease;
+}
+.opening-veil.ready{opacity:0;visibility:hidden}
+
+/* Salmos 121:7 já está impresso na arte aprovada; não redesenhamos o papel nesse estado. */
+.dynamic-paper.reference-copy{
+  opacity:0!important;
+  box-shadow:none!important;
+  pointer-events:none;
+}
+.dynamic-paper.reference-copy:before{display:none!important}
+
+/* Garante que os hotspots continuem clicáveis sem introduzir aparência de template. */
+.hit{touch-action:manipulation}
+
+/* Em telas muito estreitas mantemos a composição inteira utilizável; o enquadramento continua centrado. */
+@media (max-width:520px){
+  .reference-frame{
+    left:50%;
+    top:50%;
+  }
+}
