@@ -3,36 +3,111 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
-  <meta name="description" content="Promessas de Deus — uma experiência da linha VEREDA, da MIDAS." />
+  <meta name="description" content="VEREDA | Promessas de Deus — receba, guarde, compartilhe e aprofunde a Palavra." />
   <meta name="theme-color" content="#f6f1e7" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
   <meta name="apple-mobile-web-app-status-bar-style" content="default" />
+  <meta name="apple-mobile-web-app-title" content="Promessas de Deus" />
   <title>Promessas de Deus | VEREDA</title>
   <link rel="stylesheet" href="./assets/styles.css?v=20" />
 </head>
 <body>
-  <a class="skip-link" href="#conteudo">Pular para o conteúdo</a>
+  <a class="skip-link" href="#app">Pular para o conteúdo</a>
+
   <div class="opening-ritual" id="opening-ritual" aria-hidden="true">
-    <div class="ritual-stage"><div class="ritual-horizon"></div><div class="ritual-box"><div class="ritual-lid"><span>VEREDA</span></div><div class="ritual-paper"><span>Uma promessa<br>para o seu momento</span></div><div class="ritual-box-front"><span class="leaf-mark">✦</span></div></div></div>
+    <div class="ritual-landscape" aria-hidden="true"><i></i><i></i><i></i></div>
+    <div class="ritual-brand">
+      <svg class="leaf-mark" viewBox="0 0 40 28" aria-hidden="true"><path d="M7 23C16 19 20 12 22 4M12 19C9 14 8 10 9 6c5 0 9 2 12 6M18 14c0-5 2-9 6-12 4 3 5 7 4 12M20 18c5-3 10-4 15-2-1 5-5 8-12 8"/></svg>
+      <strong>VEREDA</strong>
+      <span>PROMESSAS DE DEUS</span>
+    </div>
+    <div class="ritual-stage">
+      <div class="promise-box">
+        <div class="box-shadow"></div>
+        <div class="box-back"></div>
+        <div class="box-paper"><span>VEREDA</span></div>
+        <div class="box-lid"><i></i></div>
+        <div class="box-front">
+          <svg viewBox="0 0 40 28" aria-hidden="true"><path d="M7 23C16 19 20 12 22 4M12 19C9 14 8 10 9 6c5 0 9 2 12 6M18 14c0-5 2-9 6-12 4 3 5 7 4 12M20 18c5-3 10-4 15-2-1 5-5 8-12 8"/></svg>
+        </div>
+      </div>
+    </div>
+    <p>Uma promessa<br />para o seu momento</p>
   </div>
-  <div class="app-shell" id="app-shell">
+
+  <div class="app-shell">
     <header class="topbar">
-      <button class="brand-button" type="button" id="brand-home" aria-label="Ir para o início"><span class="brand-mark" aria-hidden="true"><svg class="brand-cross" viewBox="0 0 24 24"><path d="M10 3h4v6h5v4h-5v8h-4v-8H5V9h5V3Z"></path></svg></span><span><strong>Promessas de Deus</strong><small class="brand-line">Vereda</small></span></button>
-      <div class="topbar-actions"><button class="icon-button" id="theme-toggle" type="button" aria-label="Alternar modo claro e escuro" aria-pressed="false"><svg class="sun" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="4"></circle><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41"></path></svg><svg class="moon" viewBox="0 0 24 24" aria-hidden="true"><path d="M20 15.5A8.5 8.5 0 0 1 8.5 4 8.5 8.5 0 1 0 20 15.5Z"></path></svg></button></div>
+      <button class="brand-button" type="button" id="brand-home" aria-label="Ir para o início">
+        <span class="brand-mark" aria-hidden="true">
+          <svg class="brand-cross" viewBox="0 0 24 24"><path d="M10 3h4v6h5v4h-5v8h-4v-8H5V9h5V3Z"></path></svg>
+        </span>
+        <span>
+          <strong>Promessas de Deus</strong>
+          <small class="brand-line">Vereda</small>
+        </span>
+      </button>
+
+      <button class="icon-button" id="quick-theme" type="button" aria-label="Alternar modo claro e escuro">
+        <svg class="sun-icon" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="4"></circle><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41"></path></svg>
+        <svg class="moon-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M20 15.5A8.5 8.5 0 0 1 8.5 4 8.5 8.5 0 1 0 20 15.5Z"></path></svg>
+      </button>
     </header>
-    <main id="conteudo" class="main-content" tabindex="-1">
-      <section class="promise-page" aria-label="Sua promessa">
-        <div class="wordmark" aria-hidden="true"><span class="wordmark-sprig">✦</span><strong>VEREDA</strong><small>PROMESSAS DE DEUS</small></div>
-        <div class="promise-stage" id="promise-stage"><article class="promise-card" id="promise-card" aria-live="polite"><div class="card-landscape card-landscape-top" aria-hidden="true"></div><div class="promise-category"><span></span><b>PROMESSA</b><span></span></div><blockquote id="promise-text"></blockquote><p class="promise-reference" id="promise-reference"></p><p class="translation-note" id="translation-note"></p><div class="card-sprig" aria-hidden="true">✦</div><div class="card-landscape card-landscape-bottom" aria-hidden="true"></div></article></div>
-        <div class="secondary-actions" aria-label="Ações da promessa"><button type="button" class="action-button" id="save-promise"><span class="action-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 3h12v18l-6-4-6 4V3Z"></path></svg></span><span>Guardar</span></button><button type="button" class="action-button" id="share-promise"><span class="action-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="18" cy="5" r="2"></circle><circle cx="6" cy="12" r="2"></circle><circle cx="18" cy="19" r="2"></circle><path d="m8 11 8-5M8 13l8 5"></path></svg></span><span>Compartilhar</span></button><button type="button" class="action-button" id="read-bible"><span class="action-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 4.5A2.5 2.5 0 0 1 6.5 2H20v18H6.5A2.5 2.5 0 0 0 4 22V4.5Z"></path><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"></path></svg></span><span>Ler na Bíblia</span></button></div>
-        <button class="button primary" id="new-promise" type="button"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20 12a8 8 0 1 1-2.34-5.66M20 4v6h-6"></path></svg><span>Receber outra promessa</span></button>
-      </section>
-      <section class="vereda-signature" aria-label="VEREDA"><strong>VEREDA</strong><span>A Palavra mais perto de você.</span></section>
-    </main>
-    <nav class="bottom-nav" aria-label="Navegação principal"><button type="button" id="nav-home" class="active"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m3 11 9-8 9 8"></path><path d="M5 10v10h14V10M9 20v-6h6v6"></path></svg><span>Início</span></button><button type="button" id="open-saved"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 3h12v18l-6-4-6 4V3Z"></path></svg><span>Guardadas</span><span class="saved-count" id="saved-count" hidden>0</span></button><button type="button" id="nav-share"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="18" cy="5" r="2"></circle><circle cx="6" cy="12" r="2"></circle><circle cx="18" cy="19" r="2"></circle><path d="m8 11 8-5M8 13l8 5"></path></svg><span>Compartilhar</span></button><button type="button" id="nav-bible"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 4.5A2.5 2.5 0 0 1 6.5 2H20v18H6.5A2.5 2.5 0 0 0 4 22V4.5Z"></path><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20M12 6v7M9 9.5h6"></path></svg><span>Bíblia</span></button><button type="button" id="nav-settings"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 15.5a3.5 3.5 0 1 0 0-7 3.5 3.5 0 0 0 0 7Z"></path><path d="M19.4 15a1.7 1.7 0 0 0 .34 1.88l.06.06-2.83 2.83-.06-.06a1.7 1.7 0 0 0-1.88-.34 1.7 1.7 0 0 0-1.03 1.56V21h-4v-.08a1.7 1.7 0 0 0-1.03-1.56 1.7 1.7 0 0 0-1.88.34l-.06.06-2.83-2.83.06-.06A1.7 1.7 0 0 0 4.6 15a1.7 1.7 0 0 0-1.56-1.03H3v-4h.08A1.7 1.7 0 0 0 4.64 8.9a1.7 1.7 0 0 0-.34-1.88l-.06-.06 2.83-2.83.06.06 2.83 2.83-.06.06a1.7 1.7 0 0 0-.34 1.88 1.7 1.7 0 0 0 1.56 1.03H21v4h-.08A1.7 1.7 0 0 0 19.4 15Z"></path></svg><span>Ajustes</span></button></nav>
+
+    <main id="app" tabindex="-1" aria-live="polite"></main>
+
+    <nav class="bottom-nav" aria-label="Navegação principal">
+      <button type="button" data-nav="inicio" class="active">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="m3 11 9-8 9 8"></path><path d="M5 10v10h14V10M9 20v-6h6v6"></path></svg>
+        <span>Início</span>
+      </button>
+      <button type="button" data-nav="guardadas">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 3h12v18l-6-4-6 4V3Z"></path></svg>
+        <span>Guardadas</span>
+      </button>
+      <button type="button" data-nav="compartilhar">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="18" cy="5" r="2"></circle><circle cx="6" cy="12" r="2"></circle><circle cx="18" cy="19" r="2"></circle><path d="m8 11 8-5M8 13l8 5"></path></svg>
+        <span>Compartilhar</span>
+      </button>
+      <button type="button" data-nav="biblia">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 4.5A2.5 2.5 0 0 1 6.5 2H20v18H6.5A2.5 2.5 0 0 0 4 22V4.5Z"></path><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20M12 6v7M9 9.5h6"></path></svg>
+        <span>Bíblia</span>
+      </button>
+      <button type="button" data-nav="ajustes">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 15.5a3.5 3.5 0 1 0 0-7 3.5 3.5 0 0 0 0 7Z"></path><path d="M19.4 15a1.7 1.7 0 0 0 .34 1.88l.06.06-2.83 2.83-.06-.06a1.7 1.7 0 0 0-1.88-.34 1.7 1.7 0 0 0-1.03 1.56V21h-4v-.08a1.7 1.7 0 0 0-1.03-1.56 1.7 1.7 0 0 0-1.88.34l-.06.06-2.83-2.83.06-.06A1.7 1.7 0 0 0 4.6 15a1.7 1.7 0 0 0-1.56-1.03H3v-4h.08A1.7 1.7 0 0 0 4.64 8.9a1.7 1.7 0 0 0-.34-1.88l-.06-.06 2.83-2.83.06.06a1.7 1.7 0 0 0 1.88.34A1.7 1.7 0 0 0 10 3.08V3h4v.08a1.7 1.7 0 0 0 1.03 1.56 1.7 1.7 0 0 0 1.88-.34l.06-.06 2.83 2.83-.06.06a1.7 1.7 0 0 0-.34 1.88 1.7 1.7 0 0 0 1.56 1.03H21v4h-.08A1.7 1.7 0 0 0 19.4 15Z"></path></svg>
+        <span>Ajustes</span>
+      </button>
+    </nav>
   </div>
-  <div class="saved-panel" id="saved-panel" hidden><button class="panel-backdrop" id="saved-backdrop" type="button" aria-label="Fechar promessas guardadas"></button><section class="saved-sheet" role="dialog" aria-modal="true" aria-labelledby="saved-title"><div class="sheet-handle" aria-hidden="true"></div><button class="sheet-close" id="close-saved" type="button" aria-label="Fechar">×</button><p class="eyebrow">Sua caminhada</p><h2 id="saved-title">Promessas guardadas</h2><div class="saved-list" id="saved-list"></div></section></div>
-  <div class="toast" id="toast" role="status" aria-live="polite"></div><canvas id="share-canvas" width="1080" height="1350" hidden></canvas>
-  <script type="module" src="./assets/app.js?v=20"></script><script type="module" src="./assets/nav.js?v=20"></script>
+
+  <dialog class="sheet share-sheet" id="share-sheet">
+    <div class="sheet-handle" aria-hidden="true"></div>
+    <button class="sheet-close" type="button" data-close-dialog aria-label="Fechar">×</button>
+    <p class="eyebrow">Compartilhar promessa</p>
+    <h2>Leve a Palavra com você</h2>
+    <div class="share-preview" id="share-preview" aria-hidden="true"></div>
+    <div class="sheet-primary-actions">
+      <button class="button primary" id="native-share" type="button">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="18" cy="5" r="2"></circle><circle cx="6" cy="12" r="2"></circle><circle cx="18" cy="19" r="2"></circle><path d="m8 11 8-5M8 13l8 5"></path></svg>
+        Compartilhar
+      </button>
+      <button class="button ghost" id="copy-share" type="button">Copiar texto</button>
+    </div>
+  </dialog>
+
+  <dialog class="sheet settings-sheet" id="settings-sheet">
+    <div class="sheet-handle" aria-hidden="true"></div>
+    <button class="sheet-close" type="button" data-close-dialog aria-label="Fechar">×</button>
+    <p class="eyebrow">Sua experiência</p>
+    <h2>Ajustes</h2>
+    <label class="setting-row toggle-row">
+      <span><strong>Modo escuro</strong><small>Mais confortável à noite</small></span>
+      <input type="checkbox" id="theme-toggle" />
+      <span class="toggle" aria-hidden="true"></span>
+    </label>
+  </dialog>
+
+  <canvas id="share-canvas" width="1080" height="1350" hidden></canvas>
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+  <script type="module" src="./assets/app.js?v=20"></script>
 </body>
 </html>
