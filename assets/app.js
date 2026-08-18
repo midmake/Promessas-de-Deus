@@ -5,7 +5,7 @@ const active = promessas.filter(p => p.ativo);
 const byId = id => document.getElementById(id);
 const categoryNames = { paz:'Paz', refugio:'Refúgio', confianca:'Confiança', descanso:'Descanso', protecao:'Proteção', consolo:'Consolo', presenca:'Presença' };
 const BIBLE = 'https://biblia.midasstudio.com.br';
-const KEYS = { saved:'vereda-promessas-saved-v51', seen:'vereda-promessas-seen-v51', current:'vereda-promessas-current-v51', theme:'vereda-promessas-theme' };
+const KEYS = { saved:'vereda-promessas-saved-v53', seen:'vereda-promessas-seen-v53', current:'vereda-promessas-current-v53', theme:'vereda-promessas-theme' };
 let locked = false;
 let toastTimer;
 let audioContext;
@@ -17,14 +17,6 @@ function seenIds(){return read(sessionStorage,KEYS.seen,[])}
 function category(p){return categoryNames[p?.categoria]||'Promessa'}
 function currentFromSession(){const id=sessionStorage.getItem(KEYS.current);return active.find(p=>p.id===id)||active.find(p=>p.id==='psa-121-7')||active[0]}
 let current = currentFromSession();
-
-async function loadApprovedArt(){
-  const paths=['p00.txt','p01.txt','p02.txt','p03.txt','p04.txt'].map(name=>`./assets/reference/${name}?v=52`);
-  const parts=await Promise.all(paths.map(async path=>{const response=await fetch(path,{cache:'force-cache'});if(!response.ok)throw new Error('art');return (await response.text()).trim()}));
-  const src=`data:image/webp;base64,${parts.join('')}`;
-  await new Promise((resolve,reject)=>{const image=new Image();image.onload=resolve;image.onerror=reject;image.src=src});
-  byId('reference-frame').style.backgroundImage=`url("${src}")`;
-}
 
 function showToast(text){const el=byId('toast');clearTimeout(toastTimer);el.textContent=text;el.classList.add('visible');toastTimer=setTimeout(()=>el.classList.remove('visible'),1900)}
 function applyTheme(theme){root.dataset.theme=theme;localStorage.setItem(KEYS.theme,theme);document.querySelector('meta[name="theme-color"]')?.setAttribute('content',theme==='dark'?'#071713':'#173d31')}
@@ -128,11 +120,10 @@ function bindEvents(){
   }));
 }
 
-async function boot(){
+function boot(){
   applyTheme(localStorage.getItem(KEYS.theme)==='dark'?'dark':'light');
   renderPromise();
   bindEvents();
-  try{await loadApprovedArt()}catch(error){console.error('Falha ao carregar a arte aprovada',error)}
   byId('opening-veil')?.classList.add('ready');
   setTimeout(()=>byId('opening-veil')?.remove(),420);
 }
