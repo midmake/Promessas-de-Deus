@@ -3,167 +3,79 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
-  <meta name="description" content="Promessas de Deus — uma experiência VEREDA, da MIDAS." />
+  <meta name="description" content="Promessas de Deus — uma experiência da linha VEREDA, da MIDAS." />
   <meta name="theme-color" content="#f6f1e7" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
   <meta name="apple-mobile-web-app-status-bar-style" content="default" />
   <title>Promessas de Deus | VEREDA</title>
-  <link rel="stylesheet" href="./assets/styles.css" />
+  <link rel="stylesheet" href="./assets/styles.css?v=20" />
 </head>
 <body>
   <a class="skip-link" href="#conteudo">Pular para o conteúdo</a>
-
   <div class="opening-ritual" id="opening-ritual" aria-hidden="true">
     <div class="ritual-stage">
-      <div class="ritual-box" aria-hidden="true">
-        <div class="ritual-lid"></div>
-        <div class="ritual-paper"><span>VEREDA</span></div>
-        <div class="ritual-box-front"><span class="ritual-cross">✦</span></div>
+      <div class="ritual-horizon"></div>
+      <div class="ritual-box">
+        <div class="ritual-lid"><span>VEREDA</span></div>
+        <div class="ritual-paper"><span>Uma promessa<br>para o seu momento</span></div>
+        <div class="ritual-box-front"><span class="leaf-mark">✦</span></div>
       </div>
     </div>
   </div>
-
   <div class="app-shell" id="app-shell">
     <header class="topbar">
-      <div class="brand-lockup" aria-label="VEREDA, Promessas de Deus">
-        <span class="brand-mark" aria-hidden="true">
-          <svg viewBox="0 0 24 24"><path d="M10 3h4v6h5v4h-5v8h-4v-8H5V9h5V3Z" /></svg>
-        </span>
-        <span class="brand-copy">
-          <small>VEREDA</small>
-          <strong>Promessas de Deus</strong>
-        </span>
-      </div>
-
-      <div class="top-actions">
-        <button class="icon-button saved-button" id="open-saved" type="button" aria-label="Abrir promessas guardadas">
-          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 3h12v18l-6-4-6 4V3Z"/></svg>
-          <span class="saved-count" id="saved-count" hidden>0</span>
-        </button>
+      <button class="brand-button" type="button" id="brand-home" aria-label="Ir para o início">
+        <span class="brand-mark" aria-hidden="true"><svg class="brand-cross" viewBox="0 0 24 24"><path d="M10 3h4v6h5v4h-5v8h-4v-8H5V9h5V3Z"></path></svg></span>
+        <span><strong>Promessas de Deus</strong><small class="brand-line">Vereda</small></span>
+      </button>
+      <div class="topbar-actions">
         <button class="icon-button" id="theme-toggle" type="button" aria-label="Alternar modo claro e escuro" aria-pressed="false">
-          <svg class="sun" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41"/></svg>
-          <svg class="moon" viewBox="0 0 24 24" aria-hidden="true"><path d="M20 15.5A8.5 8.5 0 0 1 8.5 4 8.5 8.5 0 1 0 20 15.5Z"/></svg>
+          <svg class="sun" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="4"></circle><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41"></path></svg>
+          <svg class="moon" viewBox="0 0 24 24" aria-hidden="true"><path d="M20 15.5A8.5 8.5 0 0 1 8.5 4 8.5 8.5 0 1 0 20 15.5Z"></path></svg>
         </button>
       </div>
     </header>
-
     <main id="conteudo" class="main-content" tabindex="-1">
-      <section class="intro" aria-labelledby="page-title">
-        <p class="eyebrow">Uma promessa para o seu momento</p>
-        <h1 id="page-title">Receba. Reflita. Guarde.</h1>
+      <section class="promise-page" aria-label="Sua promessa">
+        <div class="wordmark" aria-hidden="true"><span class="wordmark-sprig">✦</span><strong>VEREDA</strong><small>PROMESSAS DE DEUS</small></div>
+        <div class="promise-stage" id="promise-stage">
+          <article class="promise-card" id="promise-card" aria-live="polite">
+            <div class="card-landscape card-landscape-top" aria-hidden="true"></div>
+            <div class="promise-category"><span></span><b>PAZ</b><span></span></div>
+            <blockquote id="promise-text"></blockquote>
+            <p class="promise-reference" id="promise-reference"></p>
+            <p class="translation-note" id="translation-note"></p>
+            <div class="card-sprig" aria-hidden="true">✦</div>
+            <div class="card-landscape card-landscape-bottom" aria-hidden="true"></div>
+          </article>
+        </div>
+        <div class="secondary-actions" aria-label="Ações da promessa">
+          <button type="button" class="action-button" id="save-promise"><span class="action-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 3h12v18l-6-4-6 4V3Z"></path></svg></span><span>Guardar</span></button>
+          <button type="button" class="action-button" id="share-promise"><span class="action-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="18" cy="5" r="2"></circle><circle cx="6" cy="12" r="2"></circle><circle cx="18" cy="19" r="2"></circle><path d="m8 11 8-5M8 13l8 5"></path></svg></span><span>Compartilhar</span></button>
+          <button type="button" class="action-button" id="read-bible"><span class="action-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 4.5A2.5 2.5 0 0 1 6.5 2H20v18H6.5A2.5 2.5 0 0 0 4 22V4.5Z"></path><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"></path></svg></span><span>Ler na Bíblia</span></button>
+        </div>
+        <button class="button primary" id="new-promise" type="button"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20 12a8 8 0 1 1-2.34-5.66M20 4v6h-6"></path></svg><span>Receber outra promessa</span></button>
       </section>
-
-      <div class="promise-stage" id="promise-stage">
-        <article class="promise-card" id="promise-card" aria-live="polite">
-          <span class="paper-detail" aria-hidden="true"></span>
-          <span class="paper-corner" aria-hidden="true"></span>
-          <p class="promise-label">PROMESSA</p>
-          <blockquote id="promise-text"></blockquote>
-          <p class="promise-reference" id="promise-reference"></p>
-          <p class="translation-note" id="translation-note"></p>
-        </article>
-      </div>
-
-      <button class="button primary" id="new-promise" type="button">
-        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20 12a8 8 0 1 1-2.34-5.66M20 4v6h-6"/></svg>
-        <span>Receber outra promessa</span>
-      </button>
-
-      <div class="secondary-actions" aria-label="Ações da promessa">
-        <button type="button" class="action-button" id="save-promise">
-          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 3h12v18l-6-4-6 4V3Z"/></svg>
-          <span>Guardar</span>
-        </button>
-        <button type="button" class="action-button" id="share-promise">
-          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3v12M7 8l5-5 5 5"/><path d="M5 13v7h14v-7"/></svg>
-          <span>Compartilhar</span>
-        </button>
-        <button type="button" class="action-button" id="read-bible">
-          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 4.5A2.5 2.5 0 0 1 6.5 2H20v18H6.5A2.5 2.5 0 0 0 4 22V4.5Z"/><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/></svg>
-          <span>Ler na Bíblia</span>
-        </button>
-      </div>
-
-      <p class="quiet-note">A Palavra no centro. A tecnologia apenas aproxima.</p>
+      <section class="vereda-signature" aria-label="VEREDA"><strong>VEREDA</strong><span>A Palavra mais perto de você.</span></section>
     </main>
-
-    <footer class="footer">
-      <strong>VEREDA · MIDAS</strong>
-      <span>Texto bíblico: João Ferreira de Almeida · domínio público.</span>
-    </footer>
+    <nav class="bottom-nav" aria-label="Navegação principal">
+      <button type="button" id="nav-home" class="active"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m3 11 9-8 9 8"></path><path d="M5 10v10h14V10M9 20v-6h6v6"></path></svg><span>Início</span></button>
+      <button type="button" id="open-saved"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 3h12v18l-6-4-6 4V3Z"></path></svg><span>Guardadas</span><span class="saved-count" id="saved-count" hidden>0</span></button>
+      <button type="button" id="nav-share"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="18" cy="5" r="2"></circle><circle cx="6" cy="12" r="2"></circle><circle cx="18" cy="19" r="2"></circle><path d="m8 11 8-5M8 13l8 5"></path></svg><span>Compartilhar</span></button>
+      <button type="button" id="nav-bible"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 4.5A2.5 2.5 0 0 1 6.5 2H20v18H6.5A2.5 2.5 0 0 0 4 22V4.5Z"></path><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20M12 6v7M9 9.5h6"></path></svg><span>Bíblia</span></button>
+      <button type="button" id="nav-settings"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 15.5a3.5 3.5 0 1 0 0-7 3.5 3.5 0 0 0 0 7Z"></path><path d="M19.4 15a1.7 1.7 0 0 0 .34 1.88l.06.06-2.83 2.83-.06-.06a1.7 1.7 0 0 0-1.88-.34 1.7 1.7 0 0 0-1.03 1.56V21h-4v-.08a1.7 1.7 0 0 0-1.03-1.56 1.7 1.7 0 0 0-1.88.34l-.06.06-2.83-2.83.06-.06A1.7 1.7 0 0 0 4.6 15a1.7 1.7 0 0 0-1.56-1.03H3v-4h.08A1.7 1.7 0 0 0 4.64 8.9a1.7 1.7 0 0 0-.34-1.88l-.06-.06 2.83-2.83.06.06 2.83 2.83-.06.06a1.7 1.7 0 0 0-.34 1.88 1.7 1.7 0 0 0 1.56 1.03H21v4h-.08A1.7 1.7 0 0 0 19.4 15Z"></path></svg><span>Ajustes</span></button>
+    </nav>
   </div>
-
   <div class="saved-panel" id="saved-panel" hidden>
     <button class="panel-backdrop" id="saved-backdrop" type="button" aria-label="Fechar promessas guardadas"></button>
     <section class="saved-sheet" role="dialog" aria-modal="true" aria-labelledby="saved-title">
-      <div class="sheet-handle" aria-hidden="true"></div>
-      <header class="saved-header">
-        <div>
-          <p class="eyebrow">Sua caminhada</p>
-          <h2 id="saved-title">Promessas guardadas</h2>
-        </div>
-        <button class="icon-button close-button" id="close-saved" type="button" aria-label="Fechar">
-          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="m6 6 12 12M18 6 6 18"/></svg>
-        </button>
-      </header>
-      <div class="saved-list" id="saved-list"></div>
+      <div class="sheet-handle" aria-hidden="true"></div><button class="sheet-close" id="close-saved" type="button" aria-label="Fechar">×</button>
+      <p class="eyebrow">Sua caminhada</p><h2 id="saved-title">Promessas guardadas</h2><div class="saved-list" id="saved-list"></div>
     </section>
   </div>
-
   <div class="toast" id="toast" role="status" aria-live="polite"></div>
-
   <canvas id="share-canvas" width="1080" height="1350" hidden></canvas>
-  <script type="module" src="./assets/app.js"></script>
-  <script>
-    (() => {
-      const button = document.getElementById('new-promise');
-      if (!button) return;
-
-      let audioContext;
-      function paperRustle() {
-        try {
-          audioContext ||= new (window.AudioContext || window.webkitAudioContext)();
-          if (audioContext.state === 'suspended') audioContext.resume();
-
-          const duration = 0.42;
-          const sampleRate = audioContext.sampleRate;
-          const buffer = audioContext.createBuffer(1, Math.floor(sampleRate * duration), sampleRate);
-          const data = buffer.getChannelData(0);
-
-          for (let i = 0; i < data.length; i++) {
-            const t = i / data.length;
-            const envelope = Math.sin(Math.PI * t) * (1 - t * 0.35);
-            const noise = (Math.random() * 2 - 1);
-            data[i] = noise * envelope * 0.48;
-          }
-
-          const source = audioContext.createBufferSource();
-          const highPass = audioContext.createBiquadFilter();
-          const bandPass = audioContext.createBiquadFilter();
-          const gain = audioContext.createGain();
-
-          highPass.type = 'highpass';
-          highPass.frequency.value = 420;
-          bandPass.type = 'bandpass';
-          bandPass.frequency.value = 1850;
-          bandPass.Q.value = 0.65;
-
-          gain.gain.setValueAtTime(0.0001, audioContext.currentTime);
-          gain.gain.exponentialRampToValueAtTime(0.12, audioContext.currentTime + 0.035);
-          gain.gain.exponentialRampToValueAtTime(0.0001, audioContext.currentTime + duration);
-
-          source.buffer = buffer;
-          source.connect(highPass).connect(bandPass).connect(gain).connect(audioContext.destination);
-          source.start();
-        } catch (_) {
-          /* áudio é apenas um aprimoramento; a experiência continua sem ele */
-        }
-      }
-
-      button.addEventListener('click', () => {
-        if (!button.disabled) paperRustle();
-      }, { passive: true });
-    })();
-  </script>
+  <script type="module" src="./assets/app.js?v=20"></script>
+  <script type="module" src="./assets/nav.js?v=20"></script>
 </body>
 </html>
