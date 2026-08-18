@@ -5,7 +5,7 @@ const active = promessas.filter(p => p.ativo);
 const byId = id => document.getElementById(id);
 const categoryNames = { paz:'Paz', refugio:'Refúgio', confianca:'Confiança', descanso:'Descanso', protecao:'Proteção', consolo:'Consolo', presenca:'Presença' };
 const BIBLE = 'https://biblia.midasstudio.com.br';
-const KEYS = { saved:'vereda-promessas-saved-v50', seen:'vereda-promessas-seen-v50', current:'vereda-promessas-current-v50', theme:'vereda-promessas-theme' };
+const KEYS = { saved:'vereda-promessas-saved-v51', seen:'vereda-promessas-seen-v51', current:'vereda-promessas-current-v51', theme:'vereda-promessas-theme' };
 let locked = false;
 let toastTimer;
 let audioContext;
@@ -17,6 +17,14 @@ function seenIds(){return read(sessionStorage,KEYS.seen,[])}
 function category(p){return categoryNames[p?.categoria]||'Promessa'}
 function currentFromSession(){const id=sessionStorage.getItem(KEYS.current);return active.find(p=>p.id===id)||active.find(p=>p.id==='psa-121-7')||active[0]}
 let current = currentFromSession();
+
+async function loadApprovedArt(){
+  const paths=['p00.txt','p01.txt','p02.txt','p03.txt','p04.txt'].map(name=>`./assets/reference/${name}?v=51`);
+  const parts=await Promise.all(paths.map(async path=>{const response=await fetch(path,{cache:'force-cache'});if(!response.ok)throw new Error('art');return (await response.text()).trim()}));
+  const src=`data:image/webp;base64,${parts.join('')}`;
+  await new Promise((resolve,reject)=>{const image=new Image();image.onload=resolve;image.onerror=reject;image.src=src});
+  byId('reference-frame').style.backgroundImage=`url("${src}")`;
+}
 
 function showToast(text){const el=byId('toast');clearTimeout(toastTimer);el.textContent=text;el.classList.add('visible');toastTimer=setTimeout(()=>el.classList.remove('visible'),1900)}
 function applyTheme(theme){root.dataset.theme=theme;localStorage.setItem(KEYS.theme,theme);document.querySelector('meta[name="theme-color"]')?.setAttribute('content',theme==='dark'?'#071713':'#173d31')}
@@ -97,26 +105,33 @@ function openShare(){byId('share-card').innerHTML=`<div class="mini">VEREDA · P
 async function nativeShare(){try{if(navigator.share)await navigator.share({title:'VEREDA | Promessas de Deus',text:shareText()});else{await navigator.clipboard.writeText(shareText());showToast('Promessa copiada')}}catch(e){if(e?.name!=='AbortError')showToast('Não foi possível compartilhar agora')}}
 function readBible(){window.location.href=`${BIBLE}/#/leitura/${current.bookId}/${current.capitulo}/${current.versiculoInicial}`}
 
-applyTheme(localStorage.getItem(KEYS.theme)==='dark'?'dark':'light');
-renderPromise();
+function bindEvents(){
+  byId('theme-toggle').addEventListener('click',toggleTheme);
+  byId('setting-theme').addEventListener('click',toggleTheme);
+  byId('save-promise').addEventListener('click',toggleSave);
+  byId('share-promise').addEventListener('click',openShare);
+  byId('read-bible').addEventListener('click',readBible);
+  byId('new-promise').addEventListener('click',nextPromise);
+  byId('native-share').addEventListener('click',nativeShare);
+  byId('copy-share').addEventListener('click',async()=>{try{await navigator.clipboard.writeText(shareText());showToast('Texto copiado')}catch{showToast('Não foi possível copiar')}});
+  document.querySelectorAll('[data-close]').forEach(btn=>btn.addEventListener('click',()=>byId(btn.dataset.close)?.close()));
+  document.querySelectorAll('[data-nav]').forEach(btn=>btn.addEventListener('click',()=>{
+    const nav=btn.dataset.nav;
+    if(nav==='inicio')return;
+    if(nav==='guardadas')renderSaved();
+    if(nav==='compartilhar')openShare();
+    if(nav==='biblia')window.location.href=`${BIBLE}/#/inicio`;
+    if(nav==='ajustes')byId('settings-sheet').showModal();
+  }));
+}
 
-byId('theme-toggle').addEventListener('click',toggleTheme);
-byId('setting-theme').addEventListener('click',toggleTheme);
-byId('save-promise').addEventListener('click',toggleSave);
-byId('share-promise').addEventListener('click',openShare);
-byId('read-bible').addEventListener('click',readBible);
-byId('new-promise').addEventListener('click',nextPromise);
-byId('native-share').addEventListener('click',nativeShare);
-byId('copy-share').addEventListener('click',async()=>{try{await navigator.clipboard.writeText(shareText());showToast('Texto copiado')}catch{showToast('Não foi possível copiar')}});
+async function boot(){
+  applyTheme(localStorage.getItem(KEYS.theme)==='dark'?'dark':'light');
+  renderPromise();
+  bindEvents();
+  try{await loadApprovedArt()}catch(error){console.error('Falha ao carregar a arte aprovada',error)}
+  byId('opening-veil')?.classList.add('ready');
+  setTimeout(()=>byId('opening-veil')?.remove(),420);
+}
 
-document.querySelectorAll('[data-close]').forEach(btn=>btn.addEventListener('click',()=>byId(btn.dataset.close)?.close()));
-document.querySelectorAll('[data-nav]').forEach(btn=>btn.addEventListener('click',()=>{
-  const nav=btn.dataset.nav;
-  if(nav==='inicio')return;
-  if(nav==='guardadas')renderSaved();
-  if(nav==='compartilhar')openShare();
-  if(nav==='biblia')window.location.href=`${BIBLE}/#/inicio`;
-  if(nav==='ajustes')byId('settings-sheet').showModal();
-}));
-
-setTimeout(()=>byId('opening-veil')?.remove(),1800);
+boot();
