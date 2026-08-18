@@ -19,7 +19,7 @@ function currentFromSession(){const id=sessionStorage.getItem(KEYS.current);retu
 let current = currentFromSession();
 
 async function loadApprovedArt(){
-  const paths=['p00.txt','p01.txt','p02.txt','p03.txt','p04.txt'].map(name=>`./assets/reference/${name}?v=51`);
+  const paths=['p00.txt','p01.txt','p02.txt','p03.txt','p04.txt'].map(name=>`./assets/reference/${name}?v=52`);
   const parts=await Promise.all(paths.map(async path=>{const response=await fetch(path,{cache:'force-cache'});if(!response.ok)throw new Error('art');return (await response.text()).trim()}));
   const src=`data:image/webp;base64,${parts.join('')}`;
   await new Promise((resolve,reject)=>{const image=new Image();image.onload=resolve;image.onerror=reject;image.src=src});
@@ -31,6 +31,9 @@ function applyTheme(theme){root.dataset.theme=theme;localStorage.setItem(KEYS.th
 function toggleTheme(){applyTheme(root.dataset.theme==='dark'?'light':'dark')}
 
 function renderPromise(){
+  const paper=byId('dynamic-paper');
+  const exactReference=current.id==='psa-121-7';
+  paper.classList.toggle('reference-copy',exactReference);
   byId('promise-category').textContent=category(current).toUpperCase();
   byId('promise-text').textContent=current.texto;
   byId('promise-reference').textContent=current.referencia;
