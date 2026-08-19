@@ -1,28 +1,71 @@
+:root{--approved-ratio:9/16}
+
 .reference-frame{
-  background-color:#173d31!important;
-  background-image:url('./caixa-aprovada.webp')!important;
+  position:absolute!important;
+  left:50%!important;
+  top:50%!important;
+  width:max(100vw,56.25svh)!important;
+  aspect-ratio:var(--approved-ratio)!important;
+  height:auto!important;
+  transform:translate(-50%,-50%)!important;
+  background-color:#f5efe3!important;
+  background-image:none!important;
   background-repeat:no-repeat!important;
   background-position:center!important;
   background-size:100% 100%!important;
+  overflow:hidden!important;
 }
-
-/* A arte aprovada é a fonte de verdade visual. Nada pode bloquear sua exibição. */
+.reference-frame.art-loaded{background-color:#f5efe3!important}
 .opening-veil{display:none!important}
 
-/* Salmos 121:7 já está impresso na arte aprovada; não redesenhamos o papel nesse estado. */
-.dynamic-paper.reference-copy{
-  opacity:0!important;
-  box-shadow:none!important;
-  pointer-events:none;
-}
+/* Na primeira promessa o texto já faz parte da própria arte aprovada. */
+.dynamic-paper.reference-copy{opacity:0!important;pointer-events:none!important;box-shadow:none!important}
 .dynamic-paper.reference-copy:before{display:none!important}
 
-/* Garante que os hotspots continuem clicáveis sem introduzir aparência de template. */
+/* Quando outra promessa é pedida, cobrimos apenas a área textual do papel mantendo a arte ao redor intacta. */
+.dynamic-paper{
+  left:21.4%!important;
+  top:24.1%!important;
+  width:57.2%!important;
+  height:22.4%!important;
+  padding:1.3% 3% 1.2%!important;
+  background:radial-gradient(circle at 28% 18%,rgba(255,255,255,.38),transparent 35%),rgba(246,232,204,.985)!important;
+  box-shadow:0 0 1.2vw 1.4vw rgba(246,232,204,.96)!important;
+}
+.dynamic-paper:before{background:radial-gradient(ellipse at center,rgba(246,232,204,.94) 0 72%,transparent 88%)!important}
+.dynamic-paper blockquote{min-height:7.2vw!important;font-size:clamp(15px,3.05vw,48px)!important;line-height:1.16!important}
+.paper-category{margin-bottom:1.15vw!important}
+.paper-divider{margin:.45vw 0!important}
+
+/* Hotspots exatamente sobre os controles existentes na imagem aprovada. */
+.theme-hit{left:86.2%!important;top:1.1%!important;width:11.2%!important;height:5.6%!important}
+.save-hit{left:14.2%!important;top:69.5%!important;width:20.2%!important;height:10.7%!important}
+.share-hit{left:39.6%!important;top:69.5%!important;width:20.4%!important;height:10.7%!important}
+.bible-hit{left:64.4%!important;top:69.5%!important;width:20.2%!important;height:10.7%!important}
+.new-hit{left:17.0%!important;top:80.1%!important;width:65.8%!important;height:6.4%!important}
+.nav-hit{top:90.25%!important;height:9.2%!important}
+.nav-home{left:2.6%!important;width:18.2%!important}
+.nav-saved{left:20.8%!important;width:18.7%!important}
+.nav-share{left:39.5%!important;width:20.1%!important}
+.nav-bible{left:59.6%!important;width:19.5%!important}
+.nav-settings{left:79.1%!important;width:18.2%!important}
+
+.save-state{left:17.8%!important;top:70.3%!important;width:13.5%!important;height:7.4%!important}
+.paper-glint{left:18%!important;top:12%!important;width:64%!important;height:43%!important}
+
+:root[data-theme=dark] .reference-frame{filter:brightness(.56) saturate(.88) contrast(1.06)!important}
+:root[data-theme=dark] .dynamic-paper{background:#143c32!important;color:#f8efde!important;box-shadow:0 0 1.2vw 1.4vw rgba(20,60,50,.97)!important}
+:root[data-theme=dark] .dynamic-paper:before{background:radial-gradient(ellipse at center,rgba(20,60,50,.94) 0 72%,transparent 88%)!important}
+
 .hit{touch-action:manipulation}
 
+@media (min-aspect-ratio:9/16){
+  .reference-frame{width:auto!important;height:100svh!important}
+}
+
 @media (max-width:520px){
-  .reference-frame{
-    left:50%;
-    top:50%;
-  }
+  .dynamic-paper blockquote{font-size:clamp(15px,5.1vw,27px)!important}
+  .paper-category{font-size:clamp(7px,2.1vw,11px)!important}
+  .paper-reference{font-size:clamp(10px,2.8vw,15px)!important}
+  .paper-translation{font-size:clamp(7px,1.8vw,10px)!important}
 }
