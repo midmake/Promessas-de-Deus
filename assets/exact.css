@@ -6,14 +6,8 @@
   background-size:100% 100%!important;
 }
 
-/* A arte aprovada é a fonte de verdade visual. A interface funcional fica em camadas sobre ela. */
-.opening-veil{
-  animation:none!important;
-  opacity:1;
-  visibility:visible;
-  transition:opacity .34s ease,visibility .34s ease;
-}
-.opening-veil.ready{opacity:0;visibility:hidden}
+/* A arte aprovada é a fonte de verdade visual. Nada pode bloquear sua exibição. */
+.opening-veil{display:none!important}
 
 /* Salmos 121:7 já está impresso na arte aprovada; não redesenhamos o papel nesse estado. */
 .dynamic-paper.reference-copy{
@@ -26,7 +20,6 @@
 /* Garante que os hotspots continuem clicáveis sem introduzir aparência de template. */
 .hit{touch-action:manipulation}
 
-/* Em telas muito estreitas mantemos a composição inteira utilizável; o enquadramento continua centrado. */
 @media (max-width:520px){
   .reference-frame{
     left:50%;
