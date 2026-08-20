@@ -1,41 +1,16 @@
 <!doctype html>
 <html lang="pt-BR">
-<head>
-<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"><meta name="theme-color" content="#f4ecdc">
-<title>Promessas de Deus | VEREDA</title>
-<link rel="stylesheet" href="./assets/styles.css?v=70">
-</head>
-<body>
-<main class="app">
-<header class="topbar"><div class="brand-seal" aria-hidden="true">✦</div><div><h1>Promessas de Deus</h1><p>VEREDA</p></div></header>
-<section class="stage" aria-label="Sua promessa">
-<div class="atmosphere" aria-hidden="true"><i class="glow"></i><i class="leaf leaf-a">❧</i><i class="leaf leaf-b">❧</i><i class="leaf leaf-c">❧</i></div>
-<div class="reliquary" id="reliquary">
-  <div class="paper-wrap" id="paper-wrap">
-    <article class="promise-paper" id="promise-paper" aria-live="polite">
-      <div class="paper-brand"><span class="sprig">♧</span><b>V E R E D A</b><small>PROMESSAS DE DEUS</small></div>
-      <div class="category"><i></i><strong id="promise-category">PROMESSA</strong><i></i></div>
-      <blockquote id="promise-text"></blockquote>
-      <div class="ornament">❦</div>
-      <p class="reference" id="promise-reference"></p><p class="translation" id="promise-translation"></p>
-      <svg class="paper-landscape" viewBox="0 0 600 120" preserveAspectRatio="none" aria-hidden="true"><path d="M0 88C104 42 170 77 257 49c99-31 179-10 343 34v37H0Z" fill="#d9dfc6"/><path d="M0 103c109-26 199-14 279-29 108-20 210-8 321 20v26H0Z" fill="#c8d2b4" opacity=".75"/></svg>
-    </article>
-  </div>
-  <div class="box" aria-hidden="true">
-    <div class="box-back"></div><div class="box-body"><div class="box-gold"></div><div class="box-mark">VEREDA<span>PROMESSAS DE DEUS</span></div><div class="box-leaf">❧</div></div><div class="box-front"></div>
-  </div>
-</div>
-</section>
-<section class="actions" aria-label="Ações da promessa">
-<button id="save-promise" class="action"><span class="action-icon">♡</span><b>Guardar</b></button>
-<button id="share-promise" class="action"><span class="action-icon">⌯</span><b>Compartilhar</b></button>
-<button id="read-bible" class="action"><span class="action-icon">✚</span><b>Ler na Bíblia</b></button>
-</section>
-<button id="new-promise" class="new-promise"><span>↻</span> RECEBER OUTRA PROMESSA</button>
-<nav class="bottom-nav"><button class="active" data-nav="inicio"><span>⌂</span>Início</button><button data-nav="guardadas"><span>♡</span>Guardadas</button><button data-nav="compartilhar"><span>⌯</span>Compartilhar</button><button data-nav="biblia"><span>✚</span>Bíblia</button></nav>
+<head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"><meta name="theme-color" content="#f4eddf"><title>Promessas de Deus | VEREDA</title></head>
+<body bgcolor="#f4eddf" marginwidth="0" marginheight="0">
+<main>
+<svg viewBox="0 0 1080 1920" width="100%" height="100%" preserveAspectRatio="xMidYMid meet" aria-label="VEREDA Promessas de Deus">
+<image href="./assets/caixa-aprovada.webp?v=80" x="0" y="0" width="1080" height="1920" preserveAspectRatio="xMidYMid slice"/>
+<foreignObject x="245" y="475" width="590" height="390"><div xmlns="http://www.w3.org/1999/xhtml" align="center"><font face="Arial" color="#ad7d2c" size="2"><b id="promise-category">PROMESSA</b></font><br/><br/><font face="Georgia" color="#17372e" size="6"><span id="promise-text"></span></font><br/><br/><font face="Georgia" color="#17372e" size="3"><b id="promise-reference"></b></font><br/><font face="Arial" color="#68736e" size="2"><span id="promise-translation"></span></font></div></foreignObject>
+<g fill="transparent" pointer-events="all"><rect id="save-promise" x="145" y="1325" width="250" height="170"/><rect id="share-promise" x="415" y="1325" width="250" height="170"/><rect id="read-bible" x="685" y="1325" width="250" height="170"/><rect id="new-promise" x="180" y="1530" width="720" height="130"/><rect data-nav="guardadas" x="225" y="1735" width="205" height="175"/><rect data-nav="compartilhar" x="430" y="1735" width="220" height="175"/><rect data-nav="biblia" x="650" y="1735" width="205" height="175"/></g>
+</svg>
 </main>
-<dialog class="sheet" id="saved-sheet"><button class="close" data-close="saved-sheet">×</button><small>VEREDA</small><h2>Promessas guardadas</h2><div id="saved-list" class="saved-list"></div></dialog>
-<dialog class="sheet" id="share-sheet"><button class="close" data-close="share-sheet">×</button><small>VEREDA · PROMESSAS DE DEUS</small><h2>Compartilhar promessa</h2><div id="share-card" class="share-card"></div><button id="native-share" class="sheet-main">Compartilhar</button><button id="copy-share" class="sheet-alt">Copiar texto</button></dialog>
-<div id="toast" class="toast" role="status" aria-live="polite"></div>
-<script type="module" src="./assets/app.js?v=70"></script>
+<dialog id="saved-sheet"><button data-close="saved-sheet">Fechar</button><h2>Promessas guardadas</h2><div id="saved-list"></div></dialog>
+<dialog id="share-sheet"><button data-close="share-sheet">Fechar</button><h2>Compartilhar promessa</h2><div id="share-card"></div><button id="native-share">Compartilhar</button><button id="copy-share">Copiar texto</button></dialog>
+<div id="toast" role="status" aria-live="polite"></div>
+<script type="module" src="./assets/app.js?v=80"></script>
 </body></html>
